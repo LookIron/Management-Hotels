@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\Hotel;
+use InfyOm\Generator\Common\BaseRepository;
+
+class HotelRepository extends BaseRepository
+{
+    /**
+     * @var array
+     */
+    protected $fieldSearchable = [
+        'name',
+        'city',
+        'cost',
+        'startNumber',
+        'address',
+        'ratingAverage'
+    ];
+
+    /**
+     * Configure the Model
+     **/
+    public function model()
+    {
+        return Hotel::class;
+    }
+     public function scopeName($query, $name){
+            $query ->where('name',$name);
+         }
+}
